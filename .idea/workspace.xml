@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b0897c-a8c7-433d-a803-0c0137cb7c73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project3_DataBase.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DBProject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/InformationForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Join.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/JoinForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LoginForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserDataSet.java" afterDir="false" />
-    </list>
+    <list default="true" id="f8b0897c-a8c7-433d-a803-0c0137cb7c73" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,11 +65,24 @@
       <option name="presentableId" value="Default" />
       <updated>1719920039710</updated>
       <workItem from="1719920040901" duration="4260000" />
-      <workItem from="1719929834930" duration="4581000" />
+      <workItem from="1719929834930" duration="4939000" />
     </task>
+    <task id="LOCAL-00001" summary="Project3_DataBase 24.7.3 AM 11:41">
+      <option name="closed" value="true" />
+      <created>1719974757142</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719974757142</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project3_DataBase 24.7.3 AM 11:41" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.3 AM 11:41" />
   </component>
 </project>
