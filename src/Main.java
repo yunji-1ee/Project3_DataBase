@@ -9,22 +9,42 @@ public class Main extends JFrame {
 
             super("메인페이지"); //타이틀
             JPanel panel = new JPanel();
-            JButton login = new JButton("로그인화면");
-            JButton join = new JButton("회원가입화면");
-            setSize(500, 800); //창 크기 설정
-            panel.add(login);
-            panel.add(join);
+            panel.setBackground(Color. WHITE);
+            panel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
+            panel.setBounds(0, 0, 350, 300); // 위치와 크기 설정
+
             add(panel);
 
-            Dimension frameSize = getSize();
 
+        //프레임 초기설정---------------------------------------------------------------------
+
+            setSize(350, 550); //창 크기 설정
+
+            Dimension frameSize = getSize();
             Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-            setLocation((windowSize.width - frameSize.width) ,
+            setLocation((windowSize.width - frameSize.width-100) ,
                     (windowSize.height - frameSize.height) / 2); //화면 중앙에 띄우기
             setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
             setVisible(true);
 
+            //
+            // 로그인 확인버튼----------------------------------------------------------------------
+
+            JButton login = new JButton("로그인");
+            login.setBounds(35, 450, 130, 35);
+            panel.add(login);
+
+
+            // 회원가입으로 돌아가기 버튼----------------------------------------------------------------------
+
+            JButton join = new JButton("회원가입");
+
+            panel.add(join);
+            join.setBounds(180, 450, 130, 35);
+            panel.add(join);
+
+            //로그인버튼 리스너 -----------------------------------------------------------
             login.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -32,7 +52,7 @@ public class Main extends JFrame {
                     setVisible(false); // 창 안보이게 하기!
                 }
             });
-
+            //회원가입버튼 리스너 -----------------------------------------------------------
             join.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
