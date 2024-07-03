@@ -1,3 +1,4 @@
+import com.toedter.calendar.JDateChooser;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,7 @@ public class Join extends JFrame {
 
         Dimension frameSize = getSize();
         Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation((windowSize.width - frameSize.width-100),
+        setLocation((windowSize.width - frameSize.width - 100),
                 (windowSize.height - frameSize.height) / 2); // 화면 중앙에 띄우기
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -36,36 +37,112 @@ public class Join extends JFrame {
         JPanel layoutPanel = new JPanel();
         layoutPanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         layoutPanel.setBackground(Color.WHITE);
-        layoutPanel.setBounds(0, 100, 350, 400);
+        layoutPanel.setBounds(0, 180, 350, 400);
+
+        // 이미지 패널 설정----------------------------------------------------------------------
+        JPanel ImagePanel = new JPanel() {
+            Image background = new ImageIcon(getClass().getResource("/Image/join.jpg")).getImage();
+
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+
+        ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
+        ImagePanel.setBackground(Color.WHITE);
+        ImagePanel.setBounds(0, 25, 350, 150); // 위치와 크기 설정
 
         // 이름 입력받기----------------------------------------------------------------------
         JLabel nameLabel = new JLabel("이름 :");
-        nameLabel.setBounds(10, 20, 80, 30);
+        nameLabel.setBounds(55, 0, 80, 35);
+
         JTextField nameField = new JTextField(10);
-        nameField.setBounds(100, 20, 200, 30);
+        nameField.setBounds(110, 0, 185, 35);
+
         layoutPanel.add(nameLabel);
         layoutPanel.add(nameField);
 
         // 아이디 입력받기----------------------------------------------------------------------
-        JLabel idLabel = new JLabel("ID :");
-        idLabel.setBounds(60, 60, 80, 30);
+        JLabel idLabel = new JLabel("아이디 :");
+        idLabel.setBounds(55, 45, 80, 35);
+
         JTextField idField = new JTextField(10);
-        idField.setBounds(100, 60, 200, 30);
+        idField.setBounds(110, 45, 140, 35);
+
         layoutPanel.add(idLabel);
         layoutPanel.add(idField);
 
+        // 아이디 중복체크
+        JButton IdCheck = new JButton("완료");
+        IdCheck.setBounds(250, 45, 43, 35);
+        layoutPanel.add(IdCheck);
+
         // 비밀번호 입력받기----------------------------------------------------------------------
-        JLabel pwLabel = new JLabel("Password :");
-        pwLabel.setBounds(10, 100, 80, 30);
+        JLabel pwLabel = new JLabel("비밀번호 :");
+        pwLabel.setBounds(55, 90, 80, 35);
+
         JPasswordField pwField = new JPasswordField();
-        pwField.setBounds(100, 100, 200, 30);
+        pwField.setBounds(110, 90, 185, 35);
+
         layoutPanel.add(pwLabel);
         layoutPanel.add(pwField);
 
+        // 생일 입력받기----------------------------------------------------------------------
+        JLabel birthLabel = new JLabel("생일 :");
+        birthLabel.setBounds(55, 135, 80, 35);
+
+        JDateChooser dateChooser = new JDateChooser();
+        dateChooser.setBounds(110, 135, 185, 35);
+
+        layoutPanel.add(birthLabel);
+        layoutPanel.add(dateChooser);
+
+
+        // 성별 입력받기----------------------------------------------------------------------
+        JLabel gender = new JLabel("성별 :");
+        gender.setBounds(55, 180, 80, 35);
+        layoutPanel.add(gender);
+        // 남
+        JButton boy = new JButton("남");
+        boy.setBounds(110, 180, 80, 35);
+        layoutPanel.add(boy);
+
+        // 여
+        JButton girl = new JButton("여");
+        girl.setBounds(215, 180, 80, 35);
+        layoutPanel.add(girl);
+
+        // 약관동의----------------------------------------------------------------------
+        JLabel agree1 = new JLabel("회원가입을 완료하시면 약관 및 개인정보수집에 동의됩니다.");
+        agree1.setFont(new Font("Serial", Font.PLAIN, 10));
+        agree1.setForeground(Color.RED);
+        agree1.setBounds(55, 215, 250, 35);
+        layoutPanel.add(agree1);
+
+        JLabel agree2 = new JLabel("동의하시면 아래의 \"회원가입완료\" 버튼을 눌러주세요.");
+        agree2.setFont(new Font("Serial", Font.PLAIN, 10));
+        agree2.setForeground(Color.RED);
+        agree2.setBounds(63, 230, 250, 35);
+        layoutPanel.add(agree2);
+
+        // 회원가입 완료하기---------------------------------------------------------------------------
+        JButton SuccessJoin = new JButton("회원가입 완료하기");
+        SuccessJoin.setBounds(55, 260, 250, 35);
+        layoutPanel.add(SuccessJoin);
+
         // 패널에 레이아웃 패널 추가----------------------------------------------------------------------
         panel.add(layoutPanel);
+        panel.add(ImagePanel);
         layoutPanel.setVisible(true);
+
+        SuccessJoin.addActionListener(e -> {
+            new Login();
+            setVisible(false); // 창 안보이게 하기
+        });
     }
+
 
     public static void main(String[] args) {
         new Join();

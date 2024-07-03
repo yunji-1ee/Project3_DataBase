@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class Login extends JFrame {
     Login() {
@@ -21,11 +22,11 @@ public class Login extends JFrame {
         JPanel layoutPanel = new JPanel();
         layoutPanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         layoutPanel.setBackground(Color.WHITE);
-        layoutPanel.setBounds(0, 220, 350, 300); // 위치와 크기 설정
+        layoutPanel.setBounds(0, 180, 350, 380); // 위치와 크기 설정
 
         // 이미지 패널 설정----------------------------------------------------------------------
         JPanel ImagePanel = new JPanel() {
-            Image background = new ImageIcon(getClass().getResource("/Image/Handong.png")).getImage();
+            Image background = new ImageIcon(getClass().getResource("/Image/login.jpg")).getImage();
 
             @Override
             protected void paintComponent(Graphics g) {
@@ -35,11 +36,11 @@ public class Login extends JFrame {
         };
 
         ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
-        ImagePanel.setBackground(Color.WHITE);
-        ImagePanel.setBounds(0, 40, 350, 300); // 위치와 크기 설정
+        ImagePanel.setBackground(Color.YELLOW);
+        ImagePanel.setBounds(0, 40, 350, 150); // 위치와 크기 설정
 
         // 아이디 입력받기----------------------------------------------------------------------
-        JLabel idLabel = new JLabel("아이디");
+        JLabel idLabel = new JLabel("아이디 :");
         idLabel.setBounds(40, 0, 80, 35);
 
         JTextField idField = new JTextField(10);
@@ -69,6 +70,24 @@ public class Login extends JFrame {
         backJoin.setBounds(35, 220, 280, 35);
 
         layoutPanel.add(backJoin);
+
+        // 아이디 확인버튼----------------------------------------------------------------------
+        JButton FindId = new JButton("아이디찾기");
+        FindId.setBounds(65, 260, 100, 35);
+        FindId.setBorderPainted(false);
+        FindId.setContentAreaFilled(false);
+        FindId.setOpaque(false);
+
+        layoutPanel.add(FindId);
+
+        // 비밀번호 찾기 버튼----------------------------------------------------------------------
+        JButton FindPw = new JButton("비밀번호찾기");
+        FindPw.setBounds(185, 260, 120, 35);
+        FindPw.setBorderPainted(false);
+        FindPw.setContentAreaFilled(false);
+        FindPw.setOpaque(false);
+
+        layoutPanel.add(FindPw);
 
         // 패널에 레이아웃 패널 추가----------------------------------------------------------------------
         panel.add(layoutPanel);

@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b0897c-a8c7-433d-a803-0c0137cb7c73" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcalendar-1.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Image/join.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Image/login.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project3_DataBase.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project3_DataBase.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Join.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Join.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +52,19 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.idea/libraries" />
+      <recent name="$PROJECT_DIR$/src/Image" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -74,7 +84,7 @@
       <workItem from="1719920040901" duration="4260000" />
       <workItem from="1719929834930" duration="4939000" />
       <workItem from="1719974846080" duration="174000" />
-      <workItem from="1719977267183" duration="11225000" />
+      <workItem from="1719977267183" duration="20871000" />
     </task>
     <task id="LOCAL-00001" summary="Project3_DataBase 24.7.3 AM 11:41">
       <option name="closed" value="true" />
@@ -100,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719974898288</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Project3_DataBase 24.7.3 PM 4:3">
+      <option name="closed" value="true" />
+      <created>1719990233082</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719990233082</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +126,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project3_DataBase 24.7.3 AM 11:41" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.3 AM 11:41" />
+    <MESSAGE value="Project3_DataBase 24.7.3 PM 4:3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.3 PM 4:3" />
   </component>
 </project>
