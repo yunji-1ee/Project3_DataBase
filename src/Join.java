@@ -101,9 +101,9 @@ public class Join extends JFrame {
 
 
         // 성별 입력받기----------------------------------------------------------------------
-        JLabel gender = new JLabel("성별 :");
-        gender.setBounds(55, 180, 80, 35);
-        layoutPanel.add(gender);
+        JLabel Gender = new JLabel("성별 :");
+        Gender.setBounds(55, 180, 80, 35);
+        layoutPanel.add(Gender);
         // 남
         JButton boy = new JButton("남");
         boy.setBounds(110, 180, 80, 35);
@@ -138,8 +138,22 @@ public class Join extends JFrame {
         layoutPanel.setVisible(true);
 
         SuccessJoin.addActionListener(e -> {
+
+            JButton gender_bt = (JButton)e.getSource();
+
+            if(gender_bt.getText().equals("남")){
+                String gender = "남";
+            } else if (gender_bt.getText().equals("여")) {
+                String gender = "여";
+            }
+            String name = nameField.getText();
+            String id = idField.getText();
+            String password = pwField.getText();
+            String birthDay = dateChooser.getDate().toString();
+
             new Login();
             setVisible(false); // 창 안보이게 하기
+
         });
     }
 
@@ -149,7 +163,8 @@ public class Join extends JFrame {
     }
 }
 
-// 회원가입화면 정보입력받기
+// 회원가입화면 정보입력받기------------------------------------------------------------------------------------------
+
 class User {
     private String id;
     private String pw;
@@ -164,6 +179,7 @@ class User {
         setNickName(nickName);
         setGender(gender);
     }
+
 
     public User(String id) {
         setId(id);

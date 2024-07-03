@@ -1,7 +1,8 @@
 import java.sql.*;
 
 public class DBProject {
-    public static void main(String[] args) throws SQLException {
+
+    public static Connection getConnection() { // 부를 때마다 데이터베이스가 오픈됨
         Connection con = null;
 
         String server = "localhost"; //내 컴퓨터에서 돌아가는 디비를 사용해줄거다라는 의미
@@ -12,9 +13,19 @@ public class DBProject {
         try {
             con = DriverManager.getConnection("jdbc:mysql://" + server + "/" + db + "?useSSL=false", user, password);
             System.out.println("Connected");
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        return con;
+    }
+
+
+
+    public static void main(String[] args) throws SQLException {
+        Connection con = null;
+
 
         Statement statement = null;
         statement = con.createStatement(); //커리문으로 명령어 넘김
@@ -34,8 +45,12 @@ public class DBProject {
         statement.close();
         con.close();
 
-
     }
 
+
+    public boolean Creation (String name, String id, String passWord, String birthDay, String gender){
+
+        return false;
+    }
 
 }

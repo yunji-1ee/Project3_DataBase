@@ -11,10 +11,24 @@ public class Main extends JFrame {
             JPanel panel = new JPanel();
             panel.setBackground(Color. WHITE);
             panel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
-            panel.setBounds(0, 0, 350, 300); // 위치와 크기 설정
+            panel.setBounds(0, 0, 350, 600); // 위치와 크기 설정
 
             add(panel);
 
+            // 이미지 패널 설정----------------------------------------------------------------------
+            JPanel ImagePanel = new JPanel() {
+                Image background = new ImageIcon(getClass().getResource("/Image/Main.jpg")).getImage();
+
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
+                }
+            };
+            ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
+            ImagePanel.setBackground(Color.YELLOW);
+            ImagePanel.setBounds(0, 0, 350, 450); // 위치와 크기 설정
+            panel.add(ImagePanel);
 
         //프레임 초기설정---------------------------------------------------------------------
 
