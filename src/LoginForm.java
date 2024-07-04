@@ -1,4 +1,4 @@
-
+/*
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.JTextComponent;
@@ -178,4 +178,6 @@ public class LoginForm extends JFrame {
     public static void main(String[] args) {
         new LoginForm();
     }
-}
+}]
+
+ */

@@ -1,3 +1,4 @@
+/*
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -98,3 +99,6 @@ public class InformationForm extends JDialog {
         setResizable(false);
     }
 }
+
+
+ */

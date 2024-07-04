@@ -3,6 +3,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Objects;
+
+import static java.sql.DriverManager.getConnection;
 
 public class Join extends JFrame {
     Join() {
@@ -21,8 +25,8 @@ public class Join extends JFrame {
         setVisible(true);
 
         // 백버튼 누르면 메인화면으로 가기-------------------------------------------------------------
-        JButton back = new JButton("Back");
-        back.setBounds(10, 5, 80, 30); // 위치와 크기 설정
+        JButton back = new JButton("\uD83C\uDFE0");
+        back.setBounds(10, 5, 50, 30); // 위치와 크기 설정
         panel.add(back);
 
         back.addActionListener(new ActionListener() {
@@ -65,10 +69,10 @@ public class Join extends JFrame {
         layoutPanel.add(nameField);
 
         // 아이디 입력받기----------------------------------------------------------------------
-        JLabel idLabel = new JLabel("아이디 :");
+        JLabel idLabel = new JLabel("학번 :");
         idLabel.setBounds(55, 45, 80, 35);
 
-        JTextField idField = new JTextField(10);
+        JTextField idField = new JTextField();
         idField.setBounds(110, 45, 140, 35);
 
         layoutPanel.add(idLabel);
@@ -137,32 +141,44 @@ public class Join extends JFrame {
         panel.add(ImagePanel);
         layoutPanel.setVisible(true);
 
+        //회원가입완료 버튼 눌렀을 때 --------------------------------------------------------------------
         SuccessJoin.addActionListener(e -> {
 
-            JButton gender_bt = (JButton)e.getSource();
-
-            if(gender_bt.getText().equals("남")){
-                String gender = "남";
-            } else if (gender_bt.getText().equals("여")) {
-                String gender = "여";
-            }
             String name = nameField.getText();
             String id = idField.getText();
-            String password = pwField.getText();
-            String birthDay = dateChooser.getDate().toString();
+            String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주기
+            String birthDay = new SimpleDateFormat ("yyy-MM-dd").format (dateChooser.getDate() );
 
-            new Login();
-            setVisible(false); // 창 안보이게 하기
+            JButton gender_bt = (JButton)e.getSource();
+                String gender = gender_bt.getText();
+
+            if( gender.equals("남")){
+                gender = "남";
+            } else if ( gender.equals("여")) {
+                gender = "여";
+            } else {
+                gender = " ";
+            }
+
+            DBProject dbProject = new DBProject();
+            Boolean result = dbProject.Creation( name,id,password,birthDay,gender);
+
+            if (result) {
+                JOptionPane.showMessageDialog(null,"회원가입이 완료되었습니다.");
+                new Login();
+                setVisible(false); // 창 안보이게 하기
+            }
+            else
+                JOptionPane.showMessageDialog(null,"입력한 값을 다시 확인해주세요.");
 
         });
     }
-
 
     public static void main(String[] args) {
         new Join();
     }
 }
-
+/*
 // 회원가입화면 정보입력받기------------------------------------------------------------------------------------------
 
 class User {
@@ -243,4 +259,7 @@ class User {
         info += "Gender: " + gender + "\n";
         return info;
     }
+
 }
+*/
+

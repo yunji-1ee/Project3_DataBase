@@ -48,9 +48,39 @@ public class DBProject {
     }
 
 
-    public boolean Creation (String name, String id, String passWord, String birthDay, String gender){
+    public boolean Creation (String name, String id, String password, String birthDay, String gender){
+        String sql = "INSERT INTO user(name,student_id,password,birthday,gender) VALUES(?,?,?,?,?)";
 
-        return false;
+        Connection conn = getConnection();
+        PreparedStatement ps = null;
+
+        int count = 0;
+
+        try{
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, id);
+            ps.setString(3, password);
+            ps.setString(4, birthDay);
+            ps.setString(5, gender);
+            count = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }   finally {
+            //DB 닫아주기
+            //접속됐음
+            try{
+                if ( conn != null){
+                    conn.close();
+                }
+                if ( ps != null){
+                    ps.close();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return count > 0 ? true : false;
     }
-
 }

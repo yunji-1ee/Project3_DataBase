@@ -40,7 +40,7 @@ public class Login extends JFrame {
         ImagePanel.setBounds(0, 40, 350, 150); // 위치와 크기 설정
 
         // 아이디 입력받기----------------------------------------------------------------------
-        JLabel idLabel = new JLabel("아이디 :");
+        JLabel idLabel = new JLabel("아이디 (학번) :");
         idLabel.setBounds(40, 0, 80, 35);
 
         JTextField idField = new JTextField(10);
@@ -95,8 +95,8 @@ public class Login extends JFrame {
         layoutPanel.setVisible(true);
 
         // 백버튼 누르면 메인화면으로 가기----------------------------------------------------
-        JButton back = new JButton("Back");
-        back.setBounds(10, 5, 80, 30); // 위치와 크기 설정
+        JButton back = new JButton("\uD83C\uDFE0");
+        back.setBounds(10, 5, 50, 30); // 위치와 크기 설정
         panel.add(back);
 
         back.addActionListener(e -> {
@@ -109,7 +109,16 @@ public class Login extends JFrame {
             new Join();
             setVisible(false); // 창 안보이게 하기
         });
+
+        // Join 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
+        checkLogin.addActionListener(e -> {
+            new MyPage();
+            setVisible(false); // 창 안보이게 하기
+        });
+
     }
+
+
 
     // 메인함수---------------------------------------------------------------------------------
     public static void main(String[] args) {
