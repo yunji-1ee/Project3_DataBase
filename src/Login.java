@@ -71,7 +71,7 @@ public class Login extends JFrame {
         layoutPanel.add(backJoin);
 
         // 아이디 확인버튼----------------------------------------------------------------------
-        JButton FindId = new JButton("아이디찾기");
+        JButton FindId = new JButton("관리자모드");
         FindId.setBounds(65, 260, 100, 35);
         FindId.setBorderPainted(false);
         FindId.setContentAreaFilled(false);
@@ -112,28 +112,45 @@ public class Login extends JFrame {
         //로그인에 버튼을 눌렀을 때------------------------------------------------------------------
         checkLogin.addActionListener(e -> {
 
+
             String id = idField.getText(); //아이디 받아오고
             String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주고
+
+            System.out.println("1");
 
             DBProject dbProject = new DBProject(); //디비 프로젝트 객체로 불러와서
             boolean isValid = dbProject.validateLogin(id,password); //isValid를 디비프로젝트의 메소드를 불러와서
 
+            System.out.println("2");
+
             if (idField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "학번(아이디)를 입력해주세요.");
-
-            } else if (password.isEmpty()) {
+            }
+            else if (password.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "비밀번호를 입력하시오.");
             }
             else {
-                if (isValid) { //타당하면 메인페이지로
+                System.out.println("3");
+
+                if (isValid) {
+                    //타당하면 메인페이지로
+                    System.out.println("4");
                     JOptionPane.showMessageDialog(null, "로그인 성공!");
-                    Session.getInstance().setUserId(id); //세션에 사용자 아이디 저장
-                    new MyPage().setVisible(true);
-                    setVisible(false); // 창 안보이게 하기
-                } else // 아니면 경고메세지
+                    boolean userInfoFetched = dbProject.fetchUserInfo(id);
+
+                    if (userInfoFetched) {
+                        System.out.println("5");
+                        new MyPage().setVisible(true);
+                        setVisible(false); // 창 안보이게 하기
+
+                    }
+                }
+                else {// 아니면 경고메세지
+                    System.out.println("6");
                     JOptionPane.showMessageDialog(null, "입력한 값을 다시 확인해주세요.");
-                 }
-        });
+                }
+            }
+        }); //로그인 버튼 눌렀을 때
     }
 
 

@@ -113,16 +113,15 @@ public class Out extends JFrame{
         panel.add(ImagePanel);
         ImagePanel.setVisible(true);
 
-        // 백버튼 누르면 메인화면으로 가기----------------------------------------------------
-        JButton back = new JButton("\uD83C\uDFE0");
-        back.setBounds(10, 5, 50, 30); // 위치와 크기 설정
-        panel.add(back);
 
-        back.addActionListener(e -> {
-            new Main().setVisible(true);
-            setVisible(false); // 창 안보이게 하기
-        });
 
+        // 환영~ 출력하기----------------------------------------------------------------------
+        JLabel welcome = new JLabel(Session.getInstance().getName());
+        welcome.setBounds(125, 75, 300, 60);
+        welcome.setFont( new Font("SansSerif", Font.PLAIN, 16));
+        welcome.setForeground(Color.BLACK);
+
+        ImagePanel.add(welcome);
 
 
         // 할 일 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------

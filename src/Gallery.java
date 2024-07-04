@@ -22,7 +22,7 @@ public class Gallery extends JFrame{
 
         // 이미지 패널 설정----------------------------------------------------------------------
         JPanel ImagePanel = new JPanel() {
-            Image background = new ImageIcon(getClass().getResource("/Image/gallery.jpg")).getImage();
+            Image background = new ImageIcon(getClass().getResource("/Image/gallery.jpeg")).getImage();
 
             @Override
             protected void paintComponent(Graphics g) {
@@ -34,6 +34,15 @@ public class Gallery extends JFrame{
         ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         ImagePanel.setBackground(Color.BLUE);
         ImagePanel.setBounds(0, 50, 350, 480); // 위치와 크기 설정
+
+        // 환영~ 출력하기----------------------------------------------------------------------
+        JLabel welcome = new JLabel(Session.getInstance().getName());
+        welcome.setBounds(125, 72, 300, 60);
+        welcome.setFont( new Font("SansSerif", Font.PLAIN, 16));
+        welcome.setForeground(Color.BLACK);
+
+        ImagePanel.add(welcome);
+
 
         // 기본정보버튼----------------------------------------------------------------------
         JButton info = new JButton("기본정보");
@@ -96,15 +105,6 @@ public class Gallery extends JFrame{
         panel.add(ImagePanel);
         ImagePanel.setVisible(true);
 
-        // 백버튼 누르면 메인화면으로 가기----------------------------------------------------
-        JButton back = new JButton("\uD83C\uDFE0");
-        back.setBounds(10, 5, 50, 30); // 위치와 크기 설정
-        panel.add(back);
-
-        back.addActionListener(e -> {
-            new Main().setVisible(true);
-            setVisible(false); // 창 안보이게 하기
-        });
 
 
         // 로그아웃/탈퇴 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------

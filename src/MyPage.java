@@ -37,42 +37,49 @@ public class MyPage extends JFrame{
 
 
 
+            // 환영~ 출력하기----------------------------------------------------------------------
+            JLabel welcome = new JLabel(Session.getInstance().getName());
+            welcome.setBounds(125, 75, 300, 60);
+            welcome.setFont( new Font("SansSerif", Font.PLAIN, 16));
+            welcome.setForeground(Color.BLACK);
+
+            ImagePanel.add(welcome);
 
             // 이름 출력하기----------------------------------------------------------------------
-            JLabel name = new JLabel("이름 _");
-            name.setBounds(40, 203, 80, 35);
+            JLabel name = new JLabel("\uD83E\uDE75 이름 _ " + Session.getInstance().getName());
+            name.setBounds(40, 203, 300, 35);
             name.setFont( new Font("SansSerif", Font.PLAIN, 16));
             name.setForeground(Color.WHITE);
 
             ImagePanel.add(name);
 
             // 아이디(학번) 출력하기----------------------------------------------------------------------
-            JLabel id = new JLabel("아이디(학번) _");
-            id.setBounds(40, 238, 100, 35);
+            JLabel id = new JLabel("\uD83E\uDE75 아이디(학번) _" + Session.getInstance().getUserId());
+            id.setBounds(40, 238, 300, 35);
             id.setFont( new Font("SansSerif", Font.PLAIN, 16));
             id.setForeground(Color.WHITE);
 
             ImagePanel.add(id);
 
             // 비밀번호 출력하기----------------------------------------------------------------------
-            JLabel pw = new JLabel("비밀번호 _");
-            pw.setBounds(40, 273, 80, 35);
+            JLabel pw = new JLabel("\uD83E\uDE75 비밀번호 _" + Session.getInstance().getPassword());
+            pw.setBounds(40, 273, 300, 35);
             pw.setFont( new Font("SansSerif", Font.PLAIN, 16));
             pw.setForeground(Color.WHITE);
 
             ImagePanel.add(pw);
 
             // 성별 출력하기----------------------------------------------------------------------
-            JLabel gender = new JLabel("성별 _");
-            gender.setBounds(40, 308, 80, 35);
+            JLabel gender = new JLabel("\uD83E\uDE75 성별 _" + Session.getInstance().getGender());
+            gender.setBounds(40, 308, 300, 35);
             gender.setFont( new Font("SansSerif", Font.PLAIN, 16));
             gender.setForeground(Color.WHITE);
 
             ImagePanel.add(gender);
 
             // 생일 출력하기----------------------------------------------------------------------
-            JLabel bd = new JLabel("생일 _");
-            bd.setBounds(40, 343, 80, 35);
+            JLabel bd = new JLabel("\uD83E\uDE75 생일 _" + Session.getInstance().getBirthDate());
+            bd.setBounds(40, 343, 300, 35);
             bd.setFont( new Font("SansSerif", Font.PLAIN, 16));
             bd.setForeground(Color.WHITE);
 
@@ -145,15 +152,6 @@ public class MyPage extends JFrame{
             panel.add(ImagePanel);
             ImagePanel.setVisible(true);
 
-            // 백버튼 누르면 메인화면으로 가기----------------------------------------------------
-            JButton back = new JButton("\uD83C\uDFE0");
-            back.setBounds(10, 5, 50, 30); // 위치와 크기 설정
-            panel.add(back);
-
-            back.addActionListener(e -> {
-                new Main().setVisible(true);
-                setVisible(false); // 창 안보이게 하기
-            });
 
             // 내 정보수정 버튼 누르면 MYEDIT 페이지로가기--------------------------------------------
             editInfo.addActionListener(e -> {

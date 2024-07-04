@@ -97,6 +97,8 @@ public class DBProject {
 
             if (rs.next()) {
                 isValid = true;
+                Session.getInstance().setUserInfo(id, rs.getString("name"), password, rs.getString("gender"), rs.getString("birthday"));
+
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -125,6 +127,65 @@ public class DBProject {
             ps.setString(1, id);
             count = ps.executeUpdate();
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return count > 0;
+    }
+// 로그인시 아이디를 통해 다른 정보저장을 위함
+    public boolean fetchUserInfo(String id) {
+        String sql = "SELECT * FROM user WHERE student_id = ?";
+        Connection conn = getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean isValid = false;
+
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                isValid = true;
+                // 세션에 사용자 정보 저장
+                Session.getInstance().setUserInfo(id, rs.getString("name"), rs.getString("password"), rs.getString("gender"), rs.getString("birthday"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return isValid;
+    }
+
+    //정보 수정할 때 ---------------------------------------------------------
+    public boolean updateUser(String name,String id, String password, String birthDate, String gender) {
+        String sql = "UPDATE user SET name = ?,student_id = ?, password = ?, birthday = ?, gender = ?";
+        Connection conn = getConnection();
+        PreparedStatement ps = null;
+        int count = 0;
+
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, id);
+            ps.setString(3, password);
+            ps.setString(4, birthDate);
+            ps.setString(5, gender);
+            count = ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {

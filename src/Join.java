@@ -5,12 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Objects;
-
-import static java.sql.DriverManager.getConnection;
 
 
 public class Join extends JFrame {
