@@ -33,7 +33,7 @@ public class MyPage extends JFrame{
 
             ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
             ImagePanel.setBackground(Color.BLUE);
-            ImagePanel.setBounds(0, 50, 350, 480); // 위치와 크기 설정
+            ImagePanel.setBounds(0, 55, 350, 480); // 위치와 크기 설정
 
 
 
@@ -164,6 +164,25 @@ public class MyPage extends JFrame{
             // 로그아웃/탈퇴 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
             out.addActionListener(e -> {
                 new Out();
+                setVisible(false); // 창 안보이게 하기
+            });
+
+            // 기본정보 버튼 누르면 마이페이지로 돌아가기--------------------------------------------
+            todo.addActionListener(e -> {
+                new ToDo();
+                setVisible(false); // 창 안보이게 하기
+            });
+
+            // 상담 버튼 누르면 마이페이지로 돌아가기--------------------------------------------
+            counseling.addActionListener(e -> {
+                new Counseller();
+                setVisible(false); // 창 안보이게 하기
+            });
+
+
+            // 갤러리 버튼 누르면 마이페이지로 돌아가기--------------------------------------------
+            gallery.addActionListener(e -> {
+                new Gallery();
                 setVisible(false); // 창 안보이게 하기
             });
         }

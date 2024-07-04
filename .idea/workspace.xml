@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b0897c-a8c7-433d-a803-0c0137cb7c73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Image/MyEdit.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image/MyPage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image/out.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyEdit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Out.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Counseller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Gallery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Image/counseller.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Image/gallery.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Image/todo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ToDo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/Main.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Image/Main.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Join.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Join.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyEdit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Out.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Out.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +42,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Counseller.executor": "Run",
     "Application.DBProject.executor": "Run",
+    "Application.Gallery.executor": "Run",
     "Application.Join.executor": "Run",
     "Application.Login.executor": "Run",
     "Application.Main.executor": "Run",
@@ -93,7 +93,7 @@
       <workItem from="1719929834930" duration="4939000" />
       <workItem from="1719974846080" duration="174000" />
       <workItem from="1719977267183" duration="29746000" />
-      <workItem from="1720056056745" duration="15226000" />
+      <workItem from="1720056056745" duration="19618000" />
     </task>
     <task id="LOCAL-00001" summary="Project3_DataBase 24.7.3 AM 11:41">
       <option name="closed" value="true" />
@@ -159,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720064634510</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Project3_DataBase 24.7.4 PM 6:11">
+      <option name="closed" value="true" />
+      <created>1720084273969</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720084273969</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +191,7 @@
     <MESSAGE value="Project3_DataBase 24.7.3 PM 8:24" />
     <MESSAGE value="Project3_DataBase 24.7.3 PM 10:56" />
     <MESSAGE value="Project3_DataBase 24.7.4 PM 12:43" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.4 PM 12:43" />
+    <MESSAGE value="Project3_DataBase 24.7.4 PM 6:11" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.4 PM 6:11" />
   </component>
 </project>

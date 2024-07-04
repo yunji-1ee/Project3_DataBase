@@ -10,7 +10,7 @@ import static java.sql.DriverManager.getConnection;
 
 public class MyEdit extends JFrame {
     MyEdit() {
-        super("My Edit "); // 타이틀
+        super("team gallery "); // 타이틀
         JPanel panel = new JPanel();
         panel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         panel.setBackground(Color.WHITE);

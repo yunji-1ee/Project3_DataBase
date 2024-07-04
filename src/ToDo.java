@@ -2,10 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class Out extends JFrame{
+public class ToDo extends JFrame{
 
-    Out() {
-        super("로그아웃/탈퇴"); // 타이틀
+    ToDo() {
+        super("todo"); // 타이틀
         JPanel panel = new JPanel();
         panel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         panel.setBackground(Color.WHITE);
@@ -22,7 +22,7 @@ public class Out extends JFrame{
 
         // 이미지 패널 설정----------------------------------------------------------------------
         JPanel ImagePanel = new JPanel() {
-            Image background = new ImageIcon(getClass().getResource("/Image/out.jpg")).getImage();
+            Image background = new ImageIcon(getClass().getResource("/Image/todo.jpg")).getImage();
 
             @Override
             protected void paintComponent(Graphics g) {
@@ -37,18 +37,6 @@ public class Out extends JFrame{
 
 
 
-        //  로그아웃 버튼----------------------------------------------------------------------
-        JButton logout = new JButton("로그아웃");
-        logout.setBounds(35, 240, 280, 50);
-
-        ImagePanel.add(logout);
-
-        // 탈퇴 버튼----------------------------------------------------------------------
-        JButton realbye = new JButton("탈퇴");
-        realbye.setBounds(35, 310, 280, 50);
-
-        ImagePanel.add(realbye);
-
         // 기본정보버튼----------------------------------------------------------------------
         JButton info = new JButton("기본정보");
         info.setBounds(-15, 140, 100, 35);
@@ -62,9 +50,9 @@ public class Out extends JFrame{
 
         // 할 일 버튼----------------------------------------------------------------------
         JButton todo = new JButton("할 일");
-        todo.setBounds(73, 140, 70, 35);
-        todo.setFont( new Font("SansSerif", Font.PLAIN, 12));
-        todo.setForeground(Color.BLACK);
+        todo.setBounds(55, 140, 100, 35);
+        todo.setFont( new Font("SansSerif", Font.PLAIN, 14));
+        todo.setForeground(Color.WHITE);
         todo.setBorderPainted(false);
         todo.setContentAreaFilled(false);
         todo.setOpaque(false);
@@ -96,8 +84,8 @@ public class Out extends JFrame{
         // 로그아웃/탈퇴 버튼----------------------------------------------------------------------
         JButton out = new JButton("로그아웃/탈퇴");
         out.setBounds(250, 140, 120, 35);
-        out.setFont( new Font("SansSerif", Font.PLAIN, 14));
-        out.setForeground(Color.WHITE);
+        out.setFont( new Font("SansSerif", Font.PLAIN, 12));
+        out.setForeground(Color.BLACK);
         out.setBorderPainted(false);
         out.setContentAreaFilled(false);
         out.setOpaque(false);
@@ -122,9 +110,9 @@ public class Out extends JFrame{
 
 
 
-        // 할 일 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
-        todo.addActionListener(e -> {
-            new ToDo();
+        // 로그아웃/탈퇴 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
+        out.addActionListener(e -> {
+            new Out();
             setVisible(false); // 창 안보이게 하기
         });
 
@@ -146,27 +134,11 @@ public class Out extends JFrame{
             new Gallery();
             setVisible(false); // 창 안보이게 하기
         });
-
-
-        // 로그아웃 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
-        logout.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null,"안전하게 로그아웃되었습니다 :)");
-            new Main();
-            setVisible(false); // 창 안보이게 하기
-        });
-
-        // 탈퇴 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
-        realbye.addActionListener(e -> {
-                JOptionPane.showMessageDialog(null,"탈퇴되었습니다 :(");
-
-            new Main();
-            setVisible(false); // 창 안보이게 하기
-        });
     }
 
     // 메인함수---------------------------------------------------------------------------------
     public static void main(String[] args) {
-        new Out();
+        new ToDo();
     }
 }
 
