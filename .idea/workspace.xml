@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b0897c-a8c7-433d-a803-0c0137cb7c73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Statics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,7 @@
       <workItem from="1719974846080" duration="174000" />
       <workItem from="1719977267183" duration="29746000" />
       <workItem from="1720056056745" duration="39131000" />
-      <workItem from="1720114057920" duration="11315000" />
+      <workItem from="1720114057920" duration="12340000" />
     </task>
     <task id="LOCAL-00001" summary="Project3_DataBase 24.7.3 AM 11:41">
       <option name="closed" value="true" />
@@ -217,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720121363021</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Project3_DataBase 24.7.5 AM 6:10">
+      <option name="closed" value="true" />
+      <created>1720127431316</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1720127431316</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,7 +253,8 @@
     <MESSAGE value="Project3_DataBase 24.7.5 AM 2:3" />
     <MESSAGE value="Project3_DataBase 24.7.5 AM 2:17" />
     <MESSAGE value="Project3_DataBase 24.7.5 AM 4:29" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.5 AM 4:29" />
+    <MESSAGE value="Project3_DataBase 24.7.5 AM 6:10" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.5 AM 6:10" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

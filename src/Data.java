@@ -81,7 +81,7 @@ public class Data extends JFrame {
 
         JPanel userInfoPanel = new JPanel();
         userInfoPanel.setLayout(new BoxLayout(userInfoPanel, BoxLayout.Y_AXIS));
-        userInfoPanel.setBackground(Color.BLUE);
+        userInfoPanel.setBackground(Color.GRAY);
 
         for (User user : users) {
             JLabel userInfo = new JLabel("\uD83E\uDE75 이름: " + user.getName() + ", 아이디(학번): " + user.getId() + ", 비밀번호: " + user.getPassword());
@@ -103,6 +103,12 @@ public class Data extends JFrame {
         // 갤러리 버튼 누르면 마이페이지로 돌아가기--------------------------------------------
         statics.addActionListener(e -> {
             new Statics();
+            setVisible(false); // 창 안보이게 하기
+        });
+
+        // 데이터버튼 한 번 더 누르면 테이블 돌아가기--------------------------------------------
+        data.addActionListener(e -> {
+            new Table();
             setVisible(false); // 창 안보이게 하기
         });
     }
