@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Data extends JFrame{
+public class Data extends JFrame {
 
     Data() {
         super("Data"); // 타이틀
@@ -17,7 +20,6 @@ public class Data extends JFrame{
                 (windowSize.height - frameSize.height) / 2); // 화면 중앙에 띄우기
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
-
 
         // 백버튼 누르면 메인화면으로 가기----------------------------------------------------
         JButton back = new JButton("\uD83C\uDFE0");
@@ -42,23 +44,20 @@ public class Data extends JFrame{
 
         ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         ImagePanel.setBackground(Color.BLUE);
-        ImagePanel.setBounds(0, 100, 350, 480); // 위치와 크기 설정
-
-
+        ImagePanel.setBounds(0, 42, 350, 480); // 위치와 크기 설정
 
         // 환영~ 출력하기----------------------------------------------------------------------
         JLabel welcome = new JLabel("관리자");
         welcome.setBounds(125, 68, 300, 60);
-        welcome.setFont( new Font("SansSerif", Font.PLAIN, 16));
+        welcome.setFont(new Font("SansSerif", Font.PLAIN, 16));
         welcome.setForeground(Color.BLACK);
 
         ImagePanel.add(welcome);
 
-
         // 데이터 버튼----------------------------------------------------------------------
         JButton data = new JButton("전체 데이터 ");
         data.setBounds(18, 130, 150, 35);
-        data.setFont( new Font("SansSerif", Font.PLAIN, 20));
+        data.setFont(new Font("SansSerif", Font.PLAIN, 20));
         data.setForeground(Color.WHITE);
         data.setBorderPainted(false);
         data.setContentAreaFilled(false);
@@ -67,9 +66,9 @@ public class Data extends JFrame{
         ImagePanel.add(data);
 
         // 로그아웃/탈퇴 버튼----------------------------------------------------------------------
-        JButton statics= new JButton("통계");
+        JButton statics = new JButton("통계");
         statics.setBounds(202, 130, 110, 35);
-        statics.setFont( new Font("SansSerif", Font.PLAIN, 18));
+        statics.setFont(new Font("SansSerif", Font.PLAIN, 18));
         statics.setForeground(Color.BLACK);
         statics.setBorderPainted(false);
         statics.setContentAreaFilled(false);
@@ -77,51 +76,27 @@ public class Data extends JFrame{
 
         ImagePanel.add(statics);
 
+        // 사용자 정보를 가져와서 출력하기 위한 코드--------------------------------------------
+        List<User> users = fetchAllUsers();
 
+        JPanel userInfoPanel = new JPanel();
+        userInfoPanel.setLayout(new BoxLayout(userInfoPanel, BoxLayout.Y_AXIS));
+        userInfoPanel.setBackground(Color.BLUE);
 
-        // 이름 출력하기----------------------------------------------------------------------
-        JLabel name = new JLabel("\uD83E\uDE75 이름 _ " + Session.getInstance().getName());
-        name.setBounds(40, 198, 300, 35);
-        name.setFont( new Font("SansSerif", Font.PLAIN, 10));
-        name.setForeground(Color.WHITE);
+        for (User user : users) {
+            JLabel userInfo = new JLabel("\uD83E\uDE75 이름: " + user.getName() + ", 아이디(학번): " + user.getId() + ", 비밀번호: " + user.getPassword());
+            userInfo.setFont(new Font("SansSerif", Font.PLAIN, 12));
+            userInfo.setForeground(Color.WHITE);
+            userInfoPanel.add(userInfo);
+        }
 
-        ImagePanel.add(name);
+        JScrollPane scrollPane = new JScrollPane(userInfoPanel);
+        scrollPane.setBounds(20, 200, 310, 300);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
-        // 아이디(학번) 출력하기----------------------------------------------------------------------
-        JLabel id = new JLabel("\uD83E\uDE75 아이디(학번) _" + Session.getInstance().getUserId());
-        id.setBounds(40, 233, 300, 35);
-        id.setFont( new Font("SansSerif", Font.PLAIN, 10));
-        id.setForeground(Color.WHITE);
-
-        ImagePanel.add(id);
-
-        // 비밀번호 출력하기----------------------------------------------------------------------
-        JLabel pw = new JLabel("\uD83E\uDE75 비밀번호 _" + Session.getInstance().getPassword());
-        pw.setBounds(40, 268, 300, 35);
-        pw.setFont( new Font("SansSerif", Font.PLAIN, 10));
-        pw.setForeground(Color.WHITE);
-
-        ImagePanel.add(pw);
-
-        // 성별 출력하기----------------------------------------------------------------------
-        JLabel gender = new JLabel("\uD83E\uDE75 성별 _" + Session.getInstance().getGender());
-        gender.setBounds(40, 303, 300, 35);
-        gender.setFont( new Font("SansSerif", Font.PLAIN, 10));
-        gender.setForeground(Color.WHITE);
-
-        ImagePanel.add(gender);
-
-        // 생일 출력하기----------------------------------------------------------------------
-        JLabel bd = new JLabel("\uD83E\uDE75 생일 _" + Session.getInstance().getBirthDate());
-        bd.setBounds(40, 338, 300, 35);
-        bd.setFont( new Font("SansSerif", Font.PLAIN, 10));
-        bd.setForeground(Color.WHITE);
-
-        ImagePanel.add(bd);
-
+        ImagePanel.add(scrollPane);
 
         // 패널에 레이아웃 패널 추가----------------------------------------------------------------------
-        panel.add(ImagePanel);
         panel.add(ImagePanel);
         ImagePanel.setVisible(true);
 
@@ -132,6 +107,60 @@ public class Data extends JFrame{
         });
     }
 
+    private List<User> fetchAllUsers() {
+        List<User> users = new ArrayList<>();
+        Connection conn = DBProject.getConnection();
+        String sql = "SELECT name, student_id, password FROM user";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                User user = new User(rs.getString("name"), rs.getString("student_id"), rs.getString("password"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return users;
+    }
+
+    public static void main(String[] args) {
+        new Data();
+    }
 }
 
+class User {
+    private String name;
+    private String id;
+    private String password;
 
+    public User(String name, String id, String password) {
+        this.name = name;
+        this.id = id;
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+}

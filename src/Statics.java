@@ -42,7 +42,7 @@ public class Statics extends JFrame{
 
         ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         ImagePanel.setBackground(Color.BLUE);
-        ImagePanel.setBounds(0, 30, 350, 550); // 위치와 크기 설정
+        ImagePanel.setBounds(0, -28, 350, 550); // 위치와 크기 설정
 
 
 
