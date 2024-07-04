@@ -1,10 +1,13 @@
 import com.toedter.calendar.JDateChooser;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Objects;
 
 import static java.sql.DriverManager.getConnection;
@@ -155,31 +158,29 @@ public class Join extends JFrame {
 
             String name = nameField.getText(); //각각 값들을 받아와서
             String id = idField.getText();
-            String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주기
-            String birthDay = new SimpleDateFormat ("yyy-MM-dd").format (dateChooser.getDate() );
+            String password = new String(pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주기
 
+            boolean gotbirth;
+            String birthDay = "";
+            try {
+                birthDay = new SimpleDateFormat("yyy-MM-dd").format(dateChooser.getDate());
+                gotbirth = true;
+            } catch (Exception ex) {
+                gotbirth = false;
+            }
 
             //회원가입 조건-------------------------------------------------------------------------------------------------------
-            if (nameField.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null," 이름을 입력해주세요.");
-
-            }
-            else if (idField.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null,"학번(아이디)를 입력해주세요.");
-            }
-            else if (password.isEmpty()){
-                JOptionPane.showMessageDialog(null,"비밀번호를 입력하시오.");
-            }
-            else if (gender.isEmpty()){
-                JOptionPane.showMessageDialog(null," 성별을 입력해주세요.");
-            }
-            else if (birthDay.isEmpty()){
-                JOptionPane.showMessageDialog(null," 생,년,월,일을 입력해주세요.");
-            }
-
-
-            else {
-
+            if (nameField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, " 이름을 입력해주세요.");
+            } else if (idField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "학번(아이디)를 입력해주세요.");
+            } else if (password.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "비밀번호를 입력하시오.");
+            } else if (gender.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "성별을 입력해주세요.");
+            } else if (!gotbirth) {
+                JOptionPane.showMessageDialog(null, "생,년,월,일을 입력해주세요.");
+            } else {
                 DBProject dbProject = new DBProject();
                 Boolean result = dbProject.Creation(name, id, password, birthDay, gender);
 
@@ -192,10 +193,11 @@ public class Join extends JFrame {
             }
         });
     }
-    ActionListener gender_BoyGirl  = new ActionListener() {
+
+    ActionListener gender_BoyGirl = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JButton gender_bt = (JButton)e.getSource();
+            JButton gender_bt = (JButton) e.getSource();
             gender = gender_bt.getText();
 
         }

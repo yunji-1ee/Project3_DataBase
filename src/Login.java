@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 
 public class Login extends JFrame {
     Login() {
@@ -118,16 +116,23 @@ public class Login extends JFrame {
             String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주고
 
             DBProject dbProject = new DBProject(); //디비 프로젝트 객체로 불러와서
-            Boolean isValid = dbProject.validateLogin(id,password); //isValid를 디비프로젝트의 메소드를 불러와서
+            boolean isValid = dbProject.validateLogin(id,password); //isValid를 디비프로젝트의 메소드를 불러와서
 
-            if (isValid) { //타당하면 메인페이지로
-                JOptionPane.showMessageDialog(null,"로그인 성공!");
-                new MyPage();
-                setVisible(false); // 창 안보이게 하기
+            if (idField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "학번(아이디)를 입력해주세요.");
+
+            } else if (password.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "비밀번호를 입력하시오.");
             }
-            else // 아니면 경고메세지
-                JOptionPane.showMessageDialog(null,"입력한 값을 다시 확인해주세요.");
-
+            else {
+                if (isValid) { //타당하면 메인페이지로
+                    JOptionPane.showMessageDialog(null, "로그인 성공!");
+                    Session.getInstance().setUserId(id); //세션에 사용자 아이디 저장
+                    new MyPage().setVisible(true);
+                    setVisible(false); // 창 안보이게 하기
+                } else // 아니면 경고메세지
+                    JOptionPane.showMessageDialog(null, "입력한 값을 다시 확인해주세요.");
+                 }
         });
     }
 

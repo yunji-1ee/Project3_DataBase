@@ -30,7 +30,7 @@ public class Main extends JFrame {
             ImagePanel.setBounds(2, 40, 350, 390); // 위치와 크기 설정
             panel.add(ImagePanel);
 
-        //프레임 초기설정---------------------------------------------------------------------
+            //프레임 초기설정---------------------------------------------------------------------
 
             setSize(350, 550); //창 크기 설정
 
@@ -42,7 +42,6 @@ public class Main extends JFrame {
 
             setVisible(true);
 
-            //
             // 로그인 확인버튼----------------------------------------------------------------------
 
             JButton login = new JButton("로그인");
@@ -65,6 +64,7 @@ public class Main extends JFrame {
                     setVisible(false); // 창 안보이게 하기!
                 }
             });
+
             //회원가입버튼 리스너 -----------------------------------------------------------
             join.addActionListener(new ActionListener() {
                 @Override

@@ -22,11 +22,8 @@ public class DBProject {
     }
 
 
-
     public static void main(String[] args) throws SQLException {
         Connection con = null;
-
-
         Statement statement = null;
         statement = con.createStatement(); //커리문으로 명령어 넘김
 
@@ -47,7 +44,7 @@ public class DBProject {
 
     }
 
-
+//회원가입을 위한 메소드---------------------------------------------------------------------------------------------------
     public boolean Creation (String name, String id, String password, String birthDay, String gender){
         String sql = "INSERT INTO user(name,student_id,password,birthday,gender) VALUES(?,?,?,?,?)";
 
@@ -84,6 +81,7 @@ public class DBProject {
         return count > 0 ? true : false;
     }
 
+    //로그인을 위한 메소드-------------------------------------------------------------------------------------------
     public boolean validateLogin(String id, String password) {
         String sql = "SELECT * FROM user WHERE student_id = ? AND password = ?";
         Connection conn = getConnection();
@@ -112,5 +110,31 @@ public class DBProject {
             }
         }
         return isValid;
+    }
+
+
+    //탈퇴 위한 메소드---------------------------------------------------------------------------------------------------
+    public static boolean Delete_info(String id) {
+        String sql = "DELETE FROM user WHERE student_id = ?";
+        Connection conn = getConnection();
+        PreparedStatement ps = null;
+        int count = 0;
+
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            count = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return count > 0;
     }
 }

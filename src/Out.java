@@ -1,11 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class Out extends JFrame{
 
+    private String id;
+
     Out() {
         super("로그아웃/탈퇴"); // 타이틀
+        this.id = Session.getInstance().getUserId(); //아이디값 저장
+
         JPanel panel = new JPanel();
         panel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         panel.setBackground(Color.WHITE);
@@ -157,10 +160,18 @@ public class Out extends JFrame{
 
         // 탈퇴 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
         realbye.addActionListener(e -> {
-                JOptionPane.showMessageDialog(null,"탈퇴되었습니다 :(");
+            DBProject dbProject = new DBProject(); //디비 프로젝트 객체로 불러와서
 
-            new Main().setVisible(true);
-            setVisible(false); // 창 안보이게 하기
+            boolean result = dbProject.Delete_info(id);
+
+            if(result) {
+                JOptionPane.showMessageDialog(null, "탈퇴되었습니다 :(");
+                new Main().setVisible(true);
+                setVisible(false); // 창 안보이게 하기
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "당신은 다음학기 팀장 후보이므로 탈퇴하실 수 없습니다 ^^ 파잇팅 !");
+            }
         });
     }
 }
