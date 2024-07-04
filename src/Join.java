@@ -180,7 +180,7 @@ public class Join extends JFrame {
 
                 if (result) {
                     JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다.");
-                    new Login();
+                    new King().setVisible(true);
                     setVisible(false); // 창 안보이게 하기
                 } else
                     JOptionPane.showMessageDialog(null, "입력한 값을 다시 확인해주세요.");

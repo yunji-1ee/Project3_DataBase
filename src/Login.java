@@ -71,13 +71,55 @@ public class Login extends JFrame {
         layoutPanel.add(backJoin);
 
         // 아이디 확인버튼----------------------------------------------------------------------
-        JButton FindId = new JButton("관리자모드");
-        FindId.setBounds(65, 260, 100, 35);
-        FindId.setBorderPainted(false);
-        FindId.setContentAreaFilled(false);
-        FindId.setOpaque(false);
+        JButton King = new JButton("관리자모드");
+        King.setBounds(65, 260, 100, 35);
+        King.setBorderPainted(false);
+        King.setContentAreaFilled(false);
+        King.setOpaque(false);
 
-        layoutPanel.add(FindId);
+        layoutPanel.add(King);
+
+        // 관리자모드-----------------------------------------------------------------------------------
+        King.addActionListener(e -> {
+
+            String id = idField.getText(); //아이디 받아오고
+            String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주고
+
+            System.out.println("1");
+
+            DBProject dbProject = new DBProject(); //디비 프로젝트 객체로 불러와서
+            boolean isValid = dbProject.validateLogin(id,password); //isValid를 디비프로젝트의 메소드를 불러와서
+
+            System.out.println("2");
+
+            if (idField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "아이디를 입력해주세요.");
+            }
+            else if (password.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "비밀번호를 입력하시오.");
+            }
+            else {
+                System.out.println("3");
+
+                if (isValid) {
+                    //타당하면 메인페이지로
+                    System.out.println("4");
+                    JOptionPane.showMessageDialog(null, "관리자 모드로 전환되었습니다.");
+                    boolean userInfoFetched = dbProject.fetchUserInfo(id);
+
+                    if (userInfoFetched) {
+                        System.out.println("5");
+                        new MyPage().setVisible(true);
+                        setVisible(false); // 창 안보이게 하기
+
+                    }
+                }
+                else {// 아니면 경고메세지
+                    System.out.println("6");
+                    JOptionPane.showMessageDialog(null, "관리자모드의 아이디와 비밀번호를 바르게 입력해주세요.");
+                }
+            }
+        });
 
         // 비밀번호 찾기 버튼----------------------------------------------------------------------
         JButton FindPw = new JButton("비밀번호찾기");
