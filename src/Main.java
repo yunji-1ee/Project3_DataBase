@@ -56,7 +56,6 @@ public class Main extends JFrame {
 
             panel.add(join);
             join.setBounds(180, 450, 130, 35);
-            panel.add(join);
 
             //로그인버튼 리스너 -----------------------------------------------------------
             login.addActionListener(new ActionListener() {
@@ -70,7 +69,7 @@ public class Main extends JFrame {
             join.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new Join();
+                    new Join().setVisible(true);
                     setVisible(false); // 창 안보이게 하기
                 }
             });

@@ -108,6 +108,7 @@ public class MyEdit extends JFrame {
         JLabel Gender = new JLabel("성별 :");
         Gender.setBounds(55, 180, 80, 35);
         layoutPanel.add(Gender);
+
         // 남
         JButton boy = new JButton("남");
         boy.setBounds(110, 180, 80, 35);
@@ -147,13 +148,9 @@ public class MyEdit extends JFrame {
                 gender = " ";
             }
  */
-            new MyPage();
+            new MyPage().setVisible(true);
                 setVisible(false); // 창 안보이게 하기
-
         });
     }
 
-    public static void main(String[] args) {
-        new MyEdit();
-    }
 }

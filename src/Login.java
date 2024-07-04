@@ -101,41 +101,35 @@ public class Login extends JFrame {
         panel.add(back);
 
         back.addActionListener(e -> {
-            new Main();
+            new Main().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
 
         // Join 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
         backJoin.addActionListener(e -> {
-            new Join();
+            new Join().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
 
-        //로그인에 성공하면 마이페이지로 들어가기--------------------------------------------
+        //로그인에 버튼을 눌렀을 때------------------------------------------------------------------
         checkLogin.addActionListener(e -> {
 
+            String id = idField.getText(); //아이디 받아오고
+            String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주고
 
-            String id = idField.getText();
-            String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주기
+            DBProject dbProject = new DBProject(); //디비 프로젝트 객체로 불러와서
+            Boolean isValid = dbProject.validateLogin(id,password); //isValid를 디비프로젝트의 메소드를 불러와서
 
-            DBProject dbProject = new DBProject();
-            Boolean isValid = dbProject.validateLogin(id,password);
-
-            if (isValid) {
+            if (isValid) { //타당하면 메인페이지로
                 JOptionPane.showMessageDialog(null,"로그인 성공!");
                 new MyPage();
                 setVisible(false); // 창 안보이게 하기
             }
-            else
+            else // 아니면 경고메세지
                 JOptionPane.showMessageDialog(null,"입력한 값을 다시 확인해주세요.");
 
         });
     }
 
 
-
-    // 메인함수---------------------------------------------------------------------------------
-    public static void main(String[] args) {
-        new Login();
-    }
 }

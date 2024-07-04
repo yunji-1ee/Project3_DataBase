@@ -116,7 +116,7 @@ public class Out extends JFrame{
         panel.add(back);
 
         back.addActionListener(e -> {
-            new Main();
+            new Main().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
 
@@ -124,26 +124,26 @@ public class Out extends JFrame{
 
         // 할 일 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
         todo.addActionListener(e -> {
-            new ToDo();
+            new ToDo().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
 
         // 기본정보 버튼 누르면 마이페이지로 돌아가기--------------------------------------------
         info.addActionListener(e -> {
-            new MyPage();
+            new MyPage().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
 
         // 상담 버튼 누르면 마이페이지로 돌아가기--------------------------------------------
         counseling.addActionListener(e -> {
-            new Counseller();
+            new Counseller().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
 
 
         // 갤러리 버튼 누르면 마이페이지로 돌아가기--------------------------------------------
         gallery.addActionListener(e -> {
-            new Gallery();
+            new Gallery().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
 
@@ -151,7 +151,7 @@ public class Out extends JFrame{
         // 로그아웃 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
         logout.addActionListener(e -> {
             JOptionPane.showMessageDialog(null,"안전하게 로그아웃되었습니다 :)");
-            new Main();
+            new Main().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
 
@@ -159,14 +159,9 @@ public class Out extends JFrame{
         realbye.addActionListener(e -> {
                 JOptionPane.showMessageDialog(null,"탈퇴되었습니다 :(");
 
-            new Main();
+            new Main().setVisible(true);
             setVisible(false); // 창 안보이게 하기
         });
-    }
-
-    // 메인함수---------------------------------------------------------------------------------
-    public static void main(String[] args) {
-        new Out();
     }
 }
 
