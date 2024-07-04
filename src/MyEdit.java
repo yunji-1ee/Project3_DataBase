@@ -8,9 +8,9 @@ import java.util.Objects;
 
 import static java.sql.DriverManager.getConnection;
 
-public class Join extends JFrame {
-    Join() {
-        super("Join "); // 타이틀
+public class MyEdit extends JFrame {
+    MyEdit() {
+        super("My Edit "); // 타이틀
         JPanel panel = new JPanel();
         panel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         panel.setBackground(Color.WHITE);
@@ -45,7 +45,7 @@ public class Join extends JFrame {
 
         // 이미지 패널 설정----------------------------------------------------------------------
         JPanel ImagePanel = new JPanel() {
-            Image background = new ImageIcon(getClass().getResource("/Image/join.jpg")).getImage();
+            Image background = new ImageIcon(getClass().getResource("/Image/MyEdit.jpg")).getImage();
 
             @Override
             protected void paintComponent(Graphics g) {
@@ -56,7 +56,7 @@ public class Join extends JFrame {
 
         ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
         ImagePanel.setBackground(Color.WHITE);
-        ImagePanel.setBounds(0, 25, 350, 150); // 위치와 크기 설정
+        ImagePanel.setBounds(30, 50, 280, 125); // 위치와 크기 설정
 
         // 이름 입력받기----------------------------------------------------------------------
         JLabel nameLabel = new JLabel("이름 :");
@@ -118,22 +118,9 @@ public class Join extends JFrame {
         girl.setBounds(215, 180, 80, 35);
         layoutPanel.add(girl);
 
-        // 약관동의----------------------------------------------------------------------
-        JLabel agree1 = new JLabel("회원가입을 완료하시면 약관 및 개인정보수집에 동의됩니다.");
-        agree1.setFont(new Font("Serial", Font.PLAIN, 10));
-        agree1.setForeground(Color.RED);
-        agree1.setBounds(55, 215, 250, 35);
-        layoutPanel.add(agree1);
-
-        JLabel agree2 = new JLabel("동의하시면 아래의 \"회원가입완료\" 버튼을 눌러주세요.");
-        agree2.setFont(new Font("Serial", Font.PLAIN, 10));
-        agree2.setForeground(Color.RED);
-        agree2.setBounds(63, 230, 250, 35);
-        layoutPanel.add(agree2);
-
         // 회원가입 완료하기---------------------------------------------------------------------------
-        JButton SuccessJoin = new JButton("회원가입 완료하기");
-        SuccessJoin.setBounds(55, 260, 250, 35);
+        JButton SuccessJoin = new JButton("수정 완료");
+        SuccessJoin.setBounds(55, 230, 250, 35);
         layoutPanel.add(SuccessJoin);
 
         // 패널에 레이아웃 패널 추가----------------------------------------------------------------------
@@ -143,14 +130,14 @@ public class Join extends JFrame {
 
         //회원가입완료 버튼 눌렀을 때 --------------------------------------------------------------------
         SuccessJoin.addActionListener(e -> {
-
+/*
             String name = nameField.getText();
             String id = idField.getText();
             String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주기
             String birthDay = new SimpleDateFormat ("yyy-MM-dd").format (dateChooser.getDate() );
 
             JButton gender_bt = (JButton)e.getSource();
-                String gender = gender_bt.getText();
+            String gender = gender_bt.getText();
 
             if( gender.equals("남")){
                 gender = "남";
@@ -159,22 +146,14 @@ public class Join extends JFrame {
             } else {
                 gender = " ";
             }
-
-            DBProject dbProject = new DBProject();
-            Boolean result = dbProject.Creation( name,id,password,birthDay,gender);
-
-            if (result) {
-                JOptionPane.showMessageDialog(null,"회원가입이 완료되었습니다.");
-                new Login();
+ */
+            new MyPage();
                 setVisible(false); // 창 안보이게 하기
-            }
-            else
-                JOptionPane.showMessageDialog(null,"입력한 값을 다시 확인해주세요.");
 
         });
     }
 
     public static void main(String[] args) {
-        new Join();
+        new MyEdit();
     }
 }

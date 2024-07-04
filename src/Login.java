@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 
 public class Login extends JFrame {
     Login() {
@@ -110,12 +111,25 @@ public class Login extends JFrame {
             setVisible(false); // 창 안보이게 하기
         });
 
-        // Join 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
+        //로그인에 성공하면 마이페이지로 들어가기--------------------------------------------
         checkLogin.addActionListener(e -> {
-            new MyPage();
-            setVisible(false); // 창 안보이게 하기
-        });
 
+
+            String id = idField.getText();
+            String password = new String (pwField.getPassword()); //비밀번호 받아와서 문자열로 바꿔주기
+
+            DBProject dbProject = new DBProject();
+            Boolean isValid = dbProject.validateLogin(id,password);
+
+            if (isValid) {
+                JOptionPane.showMessageDialog(null,"로그인 성공!");
+                new MyPage();
+                setVisible(false); // 창 안보이게 하기
+            }
+            else
+                JOptionPane.showMessageDialog(null,"입력한 값을 다시 확인해주세요.");
+
+        });
     }
 
 

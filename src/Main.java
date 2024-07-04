@@ -27,7 +27,7 @@ public class Main extends JFrame {
             };
             ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
             ImagePanel.setBackground(Color.YELLOW);
-            ImagePanel.setBounds(0, 0, 350, 450); // 위치와 크기 설정
+            ImagePanel.setBounds(2, 40, 350, 390); // 위치와 크기 설정
             panel.add(ImagePanel);
 
         //프레임 초기설정---------------------------------------------------------------------

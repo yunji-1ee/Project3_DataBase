@@ -19,15 +19,10 @@ public class MyPage extends JFrame{
             setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             setVisible(true);
 
-            // 레이아웃 패널 설정----------------------------------------------------------------------
-            JPanel layoutPanel = new JPanel();
-            layoutPanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
-            layoutPanel.setBackground(Color.WHITE);
-            layoutPanel.setBounds(0, 180, 350, 380); // 위치와 크기 설정
 
             // 이미지 패널 설정----------------------------------------------------------------------
             JPanel ImagePanel = new JPanel() {
-                Image background = new ImageIcon(getClass().getResource("/Image/")).getImage();
+                Image background = new ImageIcon(getClass().getResource("/Image/MyPage.jpg")).getImage();
 
                 @Override
                 protected void paintComponent(Graphics g) {
@@ -37,55 +32,118 @@ public class MyPage extends JFrame{
             };
 
             ImagePanel.setLayout(null); // 레이아웃 매니저를 null로 설정하여 절대 위치 지정
-            ImagePanel.setBackground(Color.YELLOW);
-            ImagePanel.setBounds(0, 40, 350, 150); // 위치와 크기 설정
+            ImagePanel.setBackground(Color.BLUE);
+            ImagePanel.setBounds(0, 50, 350, 480); // 위치와 크기 설정
 
-            // 아이디 입력받기----------------------------------------------------------------------
-            JLabel idLabel = new JLabel("아이디 (학번) :");
-            idLabel.setBounds(40, 0, 80, 35);
 
-            layoutPanel.add(idLabel);
 
-            // 비밀번호 입력받기----------------------------------------------------------------------
-            JLabel pwLabel = new JLabel("비밀번호 :");
-            pwLabel.setBounds(40, 55, 80, 35);
 
-            layoutPanel.add(pwLabel);
+            // 이름 출력하기----------------------------------------------------------------------
+            JLabel name = new JLabel("이름 _");
+            name.setBounds(40, 203, 80, 35);
+            name.setFont( new Font("SansSerif", Font.PLAIN, 16));
+            name.setForeground(Color.WHITE);
 
-            // 로그인 확인버튼----------------------------------------------------------------------
-            JButton checkLogin = new JButton("로그인");
-            checkLogin.setBounds(35, 180, 280, 35);
+            ImagePanel.add(name);
 
-            layoutPanel.add(checkLogin);
+            // 아이디(학번) 출력하기----------------------------------------------------------------------
+            JLabel id = new JLabel("아이디(학번) _");
+            id.setBounds(40, 238, 100, 35);
+            id.setFont( new Font("SansSerif", Font.PLAIN, 16));
+            id.setForeground(Color.WHITE);
 
-            // 회원가입으로 돌아가기 버튼----------------------------------------------------------------------
-            JButton backJoin = new JButton("회원가입");
-            backJoin.setBounds(35, 220, 280, 35);
+            ImagePanel.add(id);
 
-            layoutPanel.add(backJoin);
+            // 비밀번호 출력하기----------------------------------------------------------------------
+            JLabel pw = new JLabel("비밀번호 _");
+            pw.setBounds(40, 273, 80, 35);
+            pw.setFont( new Font("SansSerif", Font.PLAIN, 16));
+            pw.setForeground(Color.WHITE);
 
-            // 아이디 확인버튼----------------------------------------------------------------------
-            JButton FindId = new JButton("아이디찾기");
-            FindId.setBounds(65, 260, 100, 35);
-            FindId.setBorderPainted(false);
-            FindId.setContentAreaFilled(false);
-            FindId.setOpaque(false);
+            ImagePanel.add(pw);
 
-            layoutPanel.add(FindId);
+            // 성별 출력하기----------------------------------------------------------------------
+            JLabel gender = new JLabel("성별 _");
+            gender.setBounds(40, 308, 80, 35);
+            gender.setFont( new Font("SansSerif", Font.PLAIN, 16));
+            gender.setForeground(Color.WHITE);
 
-            // 비밀번호 찾기 버튼----------------------------------------------------------------------
-            JButton FindPw = new JButton("비밀번호찾기");
-            FindPw.setBounds(185, 260, 120, 35);
-            FindPw.setBorderPainted(false);
-            FindPw.setContentAreaFilled(false);
-            FindPw.setOpaque(false);
+            ImagePanel.add(gender);
 
-            layoutPanel.add(FindPw);
+            // 생일 출력하기----------------------------------------------------------------------
+            JLabel bd = new JLabel("생일 _");
+            bd.setBounds(40, 343, 80, 35);
+            bd.setFont( new Font("SansSerif", Font.PLAIN, 16));
+            bd.setForeground(Color.WHITE);
+
+            ImagePanel.add(bd);
+
+            // 정보 수정하기 버튼----------------------------------------------------------------------
+            JButton editInfo = new JButton("정보 수정하기");
+            editInfo.setBounds(35, 400, 280, 35);
+
+            ImagePanel.add(editInfo);
+
+            // 기본정보버튼----------------------------------------------------------------------
+            JButton info = new JButton("기본정보");
+            info.setBounds(-10, 140, 100, 35);
+            info.setFont( new Font("SansSerif", Font.PLAIN, 14));
+            info.setForeground(Color.WHITE);
+            info.setBorderPainted(false);
+            info.setContentAreaFilled(false);
+            info.setOpaque(false);
+
+            ImagePanel.add(info);
+
+            // 할 일 버튼----------------------------------------------------------------------
+            JButton todo = new JButton("할 일");
+            todo.setBounds(73, 140, 70, 35);
+            todo.setFont( new Font("SansSerif", Font.PLAIN, 12));
+            todo.setForeground(Color.BLACK);
+            todo.setBorderPainted(false);
+            todo.setContentAreaFilled(false);
+            todo.setOpaque(false);
+
+            ImagePanel.add(todo);
+
+            // 면담신청 버튼----------------------------------------------------------------------
+            JButton counseling= new JButton("면담신청");
+            counseling.setBounds(130, 140, 85, 35);
+            counseling.setFont( new Font("SansSerif", Font.PLAIN, 12));
+            counseling.setForeground(Color.BLACK);
+            counseling.setBorderPainted(false);
+            counseling.setContentAreaFilled(false);
+            counseling.setOpaque(false);
+
+            ImagePanel.add(counseling);
+
+            // 팀 갤러리 버튼----------------------------------------------------------------------
+            JButton gallery = new JButton("팀 사진");
+            gallery.setBounds(191, 140, 80, 35);
+            gallery.setFont( new Font("SansSerif", Font.PLAIN, 12));
+            gallery.setForeground(Color.BLACK);
+            gallery.setBorderPainted(false);
+            gallery.setContentAreaFilled(false);
+            gallery.setOpaque(false);
+
+            ImagePanel.add(gallery);
+
+            // 로그아웃/탈퇴 버튼----------------------------------------------------------------------
+            JButton out = new JButton("로그아웃/탈퇴");
+            out.setBounds(250, 140, 110, 35);
+            out.setFont( new Font("SansSerif", Font.PLAIN, 12));
+            out.setForeground(Color.BLACK);
+            out.setBorderPainted(false);
+            out.setContentAreaFilled(false);
+            out.setOpaque(false);
+
+            ImagePanel.add(out);
+
 
             // 패널에 레이아웃 패널 추가----------------------------------------------------------------------
-            panel.add(layoutPanel);
             panel.add(ImagePanel);
-            layoutPanel.setVisible(true);
+            panel.add(ImagePanel);
+            ImagePanel.setVisible(true);
 
             // 백버튼 누르면 메인화면으로 가기----------------------------------------------------
             JButton back = new JButton("\uD83C\uDFE0");
@@ -97,9 +155,15 @@ public class MyPage extends JFrame{
                 setVisible(false); // 창 안보이게 하기
             });
 
-            // Join 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
-            backJoin.addActionListener(e -> {
-                new Join();
+            // 내 정보수정 버튼 누르면 MYEDIT 페이지로가기--------------------------------------------
+            editInfo.addActionListener(e -> {
+                new MyEdit();
+                setVisible(false); // 창 안보이게 하기
+            });
+
+            // 로그아웃/탈퇴 버튼 누르면 회원가입 페이지로 돌아가기--------------------------------------------
+            out.addActionListener(e -> {
+                new Out();
                 setVisible(false); // 창 안보이게 하기
             });
         }

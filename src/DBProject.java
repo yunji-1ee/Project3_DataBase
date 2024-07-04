@@ -83,4 +83,34 @@ public class DBProject {
         }
         return count > 0 ? true : false;
     }
+
+    public boolean validateLogin(String id, String password) {
+        String sql = "SELECT * FROM user WHERE student_id = ? AND password = ?";
+        Connection conn = getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean isValid = false;
+
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            ps.setString(2, password);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                isValid = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return isValid;
+    }
 }
