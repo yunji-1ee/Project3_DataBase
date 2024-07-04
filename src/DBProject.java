@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.sql.*;
 
 public class DBProject {
@@ -13,47 +14,56 @@ public class DBProject {
         try {
             con = DriverManager.getConnection("jdbc:mysql://" + server + "/" + db + "?useSSL=false", user, password);
             System.out.println("Connected");
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
         return con;
     }
 
-
-    public static void main(String[] args) throws SQLException {
-        Connection con = null;
-        Statement statement = null;
-        statement = con.createStatement(); //커리문으로 명령어 넘김
-
-        ResultSet resultSet = null; //결과가 나올 객체 -클래스
-        resultSet = statement.executeQuery("select * from user"); //데이터베이스에 추가할 것
-
-
-        resultSet.next(); //
-
-        String name = null;
-        name = resultSet.getString("name"); //내가 지정해준 컬럼 이름
-
-        System.out.println(name);
-
-        resultSet.close();
-        statement.close();
-        con.close();
-
-    }
-
-//회원가입을 위한 메소드---------------------------------------------------------------------------------------------------
-    public boolean Creation (String name, String id, String password, String birthDay, String gender){
-        String sql = "INSERT INTO user(name,student_id,password,birthday,gender) VALUES(?,?,?,?,?)";
-
+    // 아이디 중복 체크를 위한 메소드
+    public boolean isIdExist(String id) {
+        String sql = "SELECT * FROM user WHERE student_id = ?";
         Connection conn = getConnection();
         PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean exists = false;
 
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                exists = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return exists;
+    }
+
+    // 회원가입을 위한 메소드
+    public boolean Creation(String name, String id, String password, String birthDay, String gender) {
+        if (isIdExist(id)) {
+            JOptionPane.showMessageDialog(null, "이미 존재하는 아이디입니다.");
+            return false;
+        }
+
+        String sql = "INSERT INTO user(name,student_id,password,birthday,gender) VALUES(?,?,?,?,?)";
+        Connection conn = getConnection();
+        PreparedStatement ps = null;
         int count = 0;
 
-        try{
+        try {
             ps = conn.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, id);
@@ -61,27 +71,20 @@ public class DBProject {
             ps.setString(4, birthDay);
             ps.setString(5, gender);
             count = ps.executeUpdate();
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }   finally {
-            //DB 닫아주기
-            //접속됐음
-            try{
-                if ( conn != null){
-                    conn.close();
-                }
-                if ( ps != null){
-                    ps.close();
-                }
+        } finally {
+            try {
+                if (conn != null) conn.close();
+                if (ps != null) ps.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        return count > 0 ? true : false;
+        return count > 0;
     }
 
-    //로그인을 위한 메소드-------------------------------------------------------------------------------------------
+    // 로그인을 위한 메소드
     public boolean validateLogin(String id, String password) {
         String sql = "SELECT * FROM user WHERE student_id = ? AND password = ?";
         Connection conn = getConnection();
@@ -98,7 +101,6 @@ public class DBProject {
             if (rs.next()) {
                 isValid = true;
                 Session.getInstance().setUserInfo(id, rs.getString("name"), password, rs.getString("gender"), rs.getString("birthday"));
-
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -114,8 +116,7 @@ public class DBProject {
         return isValid;
     }
 
-
-    //탈퇴 위한 메소드---------------------------------------------------------------------------------------------------
+    // 탈퇴 위한 메소드
     public static boolean Delete_info(String id) {
         String sql = "DELETE FROM user WHERE student_id = ?";
         Connection conn = getConnection();
@@ -126,7 +127,6 @@ public class DBProject {
             ps = conn.prepareStatement(sql);
             ps.setString(1, id);
             count = ps.executeUpdate();
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -139,7 +139,8 @@ public class DBProject {
         }
         return count > 0;
     }
-// 로그인시 아이디를 통해 다른 정보저장을 위함
+
+    // 로그인시 아이디를 통해 다른 정보저장을 위함
     public boolean fetchUserInfo(String id) {
         String sql = "SELECT * FROM user WHERE student_id = ?";
         Connection conn = getConnection();
@@ -171,9 +172,9 @@ public class DBProject {
         return isValid;
     }
 
-    //정보 수정할 때 ---------------------------------------------------------
-    public boolean updateUser(String name,String id, String password, String birthDate, String gender) {
-        String sql = "UPDATE user SET name = ?,student_id = ?, password = ?, birthday = ?, gender = ?";
+    // 정보 수정할 때
+    public boolean updateUser(String name, String id, String password, String birthDate, String gender) {
+        String sql = "UPDATE user SET name = ?, password = ?, birthday = ?, gender = ? WHERE student_id = ?";
         Connection conn = getConnection();
         PreparedStatement ps = null;
         int count = 0;
@@ -181,10 +182,10 @@ public class DBProject {
         try {
             ps = conn.prepareStatement(sql);
             ps.setString(1, name);
-            ps.setString(2, id);
-            ps.setString(3, password);
-            ps.setString(4, birthDate);
-            ps.setString(5, gender);
+            ps.setString(2, password);
+            ps.setString(3, birthDate);
+            ps.setString(4, gender);
+            ps.setString(5, id);
             count = ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -170,7 +170,7 @@ public class MyEdit extends JFrame {
                     new Login();
                     setVisible(false); // 창 안보이게 하기
                 } else
-                    JOptionPane.showMessageDialog(null, "정보수정에 실패했습니다.");
+                    JOptionPane.showMessageDialog(null, "정보수정에 실패했습니다. 학번은 변결할 수 없습니다.");
             }
         });
     }
