@@ -1,6 +1,9 @@
+import com.toedter.calendar.JDateChooser;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import javax.swing.JSpinner;
+
 
 public class Counseller extends JFrame{
 
@@ -60,8 +63,8 @@ public class Counseller extends JFrame{
 
         // 면담신청 버튼----------------------------------------------------------------------
         JButton counseling= new JButton("면담신청");
-        counseling.setBounds(128, 140, 100, 35);
-        counseling.setFont( new Font("SansSerif", Font.PLAIN, 14));
+        counseling.setBounds(126, 140, 100, 35);
+        counseling.setFont( new Font("SansSerif", Font.PLAIN, 16));
         counseling.setForeground(Color.WHITE);
         counseling.setBorderPainted(false);
         counseling.setContentAreaFilled(false);
@@ -91,6 +94,38 @@ public class Counseller extends JFrame{
 
         ImagePanel.add(out);
 
+
+
+        // 면담날짜 입력받기----------------------------------------------------------------------
+        JLabel coun_date = new JLabel("\uD83E\uDE75 면담 날짜");
+        coun_date.setBounds(40, 280, 200,  50);
+        coun_date.setFont( new Font("SansSerif", Font.PLAIN, 18));
+        coun_date.setForeground(Color.WHITE);
+
+        JDateChooser dateChooser = new JDateChooser();
+        dateChooser.setBounds(170, 286, 120, 35);
+
+        panel.add(coun_date);
+        panel.add(dateChooser);
+
+        // 면담날짜 입력받기----------------------------------------------------------------------
+       // JLabel coun_time = new JLabel("\uD83E\uDE75 면담 시간");
+       // coun_time.setBounds(40, 280, 200,  50);
+       // coun_time.setFont( new Font("SansSerif", Font.PLAIN, 18));
+       // coun_time.setForeground(Color.WHITE);
+
+        JLabel agree1 = new JLabel("상담은 매일 오후 2시부터 2시 30분 까지 진행됨");
+        agree1.setFont(new Font("Serial", Font.PLAIN, 13));
+        agree1.setForeground(Color.WHITE);
+        agree1.setBounds(40, 330, 250, 35);
+        panel.add(agree1);
+
+
+
+        dateChooser.setBounds(170, 286, 120, 35);
+
+        //panel.add(coun_time);
+        panel.add(dateChooser);
 
         // 패널에 레이아웃 패널 추가----------------------------------------------------------------------
         panel.add(ImagePanel);

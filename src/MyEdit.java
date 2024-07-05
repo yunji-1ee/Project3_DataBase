@@ -24,17 +24,14 @@ public class MyEdit extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
-        // 백버튼 누르면 메인화면으로 가기-------------------------------------------------------------
-        JButton back = new JButton("\uD83C\uDFE0");
-        back.setBounds(10, 5, 50, 30); // 위치와 크기 설정
-        panel.add(back);
+        // 뒤로가기 누르면 관리자페이지로 가기----------------------------------------------------
+        JButton baaack = new JButton("\uD83D\uDD19");
+        baaack.setBounds(5, 5, 50, 30); // 위치와 크기 설정
+        panel.add(baaack);
 
-        back.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new Main();
-                setVisible(false); // 창 안보이게 하기
-            }
+        baaack.addActionListener(e -> {
+            new MyPage().setVisible(true);
+            setVisible(false); // 창 안보이게 하기
         });
 
         // 레이아웃 패널 설정----------------------------------------------------------------------

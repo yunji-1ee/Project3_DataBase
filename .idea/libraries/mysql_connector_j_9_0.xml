@@ -2,6 +2,7 @@
   <library name="mysql-connector-j-9.0">
     <CLASSES>
       <root url="file://$USER_HOME$/Downloads/mysql-connector-j-9.0.0" />
+      <root url="jar://$USER_HOME$/Desktop/xchart-3.8.8/xchart-3.8.8.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
