@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b0897c-a8c7-433d-a803-0c0137cb7c73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Counseller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Counseller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyEdit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,35 +31,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Counseller.executor": "Run",
-    "Application.DBProject.executor": "Run",
-    "Application.Data.executor": "Run",
-    "Application.Gallery.executor": "Run",
-    "Application.Join.executor": "Run",
-    "Application.Login.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MyEdit.executor": "Run",
-    "Application.MyPage.executor": "Run",
-    "Application.Out.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/leeyunji/Documents/2024_SummerStudy/Project3_DataBase/src/Image",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Counseller.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DBProject.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Data.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Gallery.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Join.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyEdit.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyPage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Out.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/leeyunji/Documents/2024_SummerStudy/Project3_DataBase/src/Image&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Image" />
@@ -94,6 +91,8 @@
       <workItem from="1719977267183" duration="29746000" />
       <workItem from="1720056056745" duration="39131000" />
       <workItem from="1720114057920" duration="17930000" />
+      <workItem from="1720157110727" duration="34000" />
+      <workItem from="1720254762805" duration="338000" />
     </task>
     <task id="LOCAL-00001" summary="Project3_DataBase 24.7.3 AM 11:41">
       <option name="closed" value="true" />
@@ -239,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720128979885</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Project3_DataBase 24.7.5 Demo.ver">
+      <option name="closed" value="true" />
+      <created>1720157135541</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1720157135541</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +280,8 @@
     <MESSAGE value="Project3_DataBase 24.7.5 AM 6:10" />
     <MESSAGE value="Project3_DataBase 24.7.5 AM 6:29" />
     <MESSAGE value="Project3_DataBase 24.7.5 AM 6:36" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.5 AM 6:36" />
+    <MESSAGE value="Project3_DataBase 24.7.5 Demo.ver" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project3_DataBase 24.7.5 Demo.ver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
